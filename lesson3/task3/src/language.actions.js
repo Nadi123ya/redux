@@ -3,10 +3,10 @@
 export const LANGUAGE = "LANGUAGE/CHANGE";
 
 
-export const language = (lan) => {
+export const language = (language) => {
   return {
     type: LANGUAGE,
-    payload: lan,
+    payload: language,
   };
 };
 

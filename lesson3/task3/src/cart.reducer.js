@@ -1,5 +1,5 @@
 
-import { ADD_PRODUCT, DELETE_PRODUCT } from "./cart.actions";
+import { ADD_PRODUCT, REMOVE_PRODUCT } from "./cart.actions";
 
 const cart = {
     products: [],
@@ -13,7 +13,8 @@ const cartReducer = (state = cart, action) => {
           products: state.products.concat(action.payload.productData),
         };
       }
-      case DELETE_PRODUCT: {
+      case REMOVE_PRODUCT: {
+        console.log()
         const newList = state.products.filter(
           (product) => product.id != action.payload.productId
         );
