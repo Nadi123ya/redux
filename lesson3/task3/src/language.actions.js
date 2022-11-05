@@ -3,7 +3,7 @@
 export const LANGUAGE = "LANGUAGE/CHANGE";
 
 
-export const language = (language) => {
+export const setLanguage = (language) => {
   return {
     type: LANGUAGE,
     payload: language,
