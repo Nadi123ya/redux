@@ -1,21 +1,19 @@
 import React, { Component } from "react";
 import Pagination from "./Pagination";
 import User from "./User";
-import { users } from "./users";
-import store from "./store";
 import { connect } from "react-redux";
 import * as pageActions from "./page.actions";
 import propTypes from "prop-types";
+import { usersListSelector, currentPageSelector } from "./users.selectors";
 
 class UsersList extends Component {
   render() {
-    const { page, increment, decrement } = this.props;
+    const { page,users, increment, decrement  } = this.props;
     const itemsPerPage = 3;
     const pageStart = page * itemsPerPage;
     const pageEnd = pageStart + itemsPerPage;
-    const usersToDisplay = store
-      .getState()
-      .users.usersList.slice(pageStart, pageEnd);
+    const usersToDisplay = 
+      users.slice(pageStart, pageEnd);
 
     return (
       <div>
@@ -41,7 +39,7 @@ class UsersList extends Component {
 
 UsersList.propTypes = {
   users: propTypes.arrayOf(
-    propTypes.shape({ id: "id-0", age: 21, name: "Bob" })
+    propTypes.shape()
   ),
   currentPage: propTypes.string,
   goNext: propTypes.func,
@@ -49,8 +47,10 @@ UsersList.propTypes = {
 };
 
 const mapState = (state) => {
+  console.log(state)
   return {
-    page: state.currentPage,
+    users: usersListSelector(state),
+    page: currentPageSelector(state),
   };
 };
 
