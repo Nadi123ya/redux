@@ -7,7 +7,7 @@ import propTypes from "prop-types";
 
 class UsersList extends Component {
   render() {
-    const { page,users,  increment, decrement } = this.props;
+    const { page, users,  increment, decrement } = this.props;
     const itemsPerPage = 3;
     const pageStart = page * itemsPerPage;
     const pageEnd = pageStart + itemsPerPage;

@@ -12,4 +12,5 @@ const mapState = state => {
 const mapDispatch= {
   moveOption: toggleOption
 }
+
 export default connect(mapState,mapDispatch )(Options);

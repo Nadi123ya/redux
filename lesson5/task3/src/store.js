@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from 'redux';
-import optionsReducer from './options/options.reducer.js';
+import usersReducer from './users/users.reducer.js';
 
 
 
