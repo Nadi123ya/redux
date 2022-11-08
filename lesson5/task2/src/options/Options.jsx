@@ -2,7 +2,6 @@ import propTypes from "prop-types";
 import React from "react";
 
 const Options = ({ title, options, moveOption }) => {
-  console.log(options)
   return (
     <div className="options">
       <div className="options__title">{title}</div>
