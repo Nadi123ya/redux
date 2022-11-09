@@ -2,25 +2,28 @@ import React from "react";
 import Filter from "./Filter";
 import User from "./User";
 import { connect } from "react-redux";
+import { setFilterText } from "./users.actions.js";
 
 class UsersList extends React.Component {
+  // пишеш функцію, яка через action, записує текст у стор і викликаєш цю функцію в onChange інпута
 
-  // handleChange = (e) => {
-  //   this.setState({
-  //     filter: e.target.value,
-  //   });
-  // };
+  //  const handleInput = (e) => {
+  //     setFilterText(e.taget.value);
+  //   };
+
+  // де setFilterText  - це action, який записує отриманий текст у стор
 
   render() {
-    const { users } = this.props;
-    
+    const { users, filter, handleInput } = this.props;
+    console.log(this.props);
+   console.log(filter)
     return (
       <div>
         <div className="filter">
           <Filter
-            filterText={fliter}
+            filterText={filter}
             count={users.length}
-            // onChange={handleChange}
+            onChange={(e) => handleInput(e.target.value)}
           />
         </div>
         <ul className="users">
@@ -34,17 +37,16 @@ class UsersList extends React.Component {
 }
 
 const mapState = (state) => {
-  console.log(state.users)
-  console.log(state.users.UsersList)
+  console.log(state)
   return {
-    users: state.users.UsersList,
-    filter: state.users.filteredText,
+    users: state.users.usersList,
+    filter: state.users.filterText,
   };
 };
 
-// const mapDispatch= {
-//   moveOption: handleChange
-// }
 
-export default connect(mapState,null )(UsersList);
+const mapDispatch = {
+  handleInput: setFilterText,
+};
 
+export default connect(mapState, mapDispatch)(UsersList);

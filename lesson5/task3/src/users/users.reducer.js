@@ -1,27 +1,41 @@
 import { users } from "./users.js";
-// import { TOGGLE_OPTION } from "./options.action.js";
+import { INPUT_VALUE } from "./users.actions.js";
 
 const initialState = {
   usersList: users,
-  filterText: " ",
+  filterText: "",
 };
 
 const usersReducer = (state = initialState, action) => {
-  // console.log(state.usersList)
+  console.log(state.filterText);
+  console.log(state.usersList);
   switch (action.type) {
-    // case TOGGLE_OPTION: {
-    //   const { optionId } = action.payload;
-    //   const newSelectedIds = state.selected.includes(optionId)
-    //     ? state.selected.filter((id) => id !== optionId)
-    //     : state.selected.concat(optionId);
-    //   return {
-    //     ...state,
-    //     selected: newSelectedIds,
-    //   };
-    // }
+    case INPUT_VALUE: {
+      const { value } = action.payload;
+      let sortedUsers;
+      console.log(sortedUsers);
+      if (value.toUpperCase() !== value.toLowerCase()) {
+        sortedUsers = state.usersList
+          .slice()
+          .filter((user) =>
+            user.name
+              .toLowerCase()
+              .split("")
+              .includes(value.toLowerCase().split("").toString())
+          );
+      } else {
+        sortedUsers = state.usersList;
+      }
+      console.log(sortedUsers);
+      return {
+        ...state,
+        filterText: value,
+        usersList: sortedUsers,
+      };
+    }
     default:
       return state;
   }
 };
 
-export default usersReducer
+export default usersReducer;
