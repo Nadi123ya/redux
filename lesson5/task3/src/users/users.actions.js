@@ -15,5 +15,4 @@ export const handleInput = (e) => {
     
 
   
-  // де setFilterText  - це action, який записує отриманий текст у стор
  

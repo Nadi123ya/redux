@@ -5,13 +5,6 @@ import { connect } from "react-redux";
 import { setFilterText } from "./users.actions.js";
 
 class UsersList extends React.Component {
-  // пишеш функцію, яка через action, записує текст у стор і викликаєш цю функцію в onChange інпута
-
-  //  const handleInput = (e) => {
-  //     setFilterText(e.taget.value);
-  //   };
-
-  // де setFilterText  - це action, який записує отриманий текст у стор
 
   render() {
     const { users, filter, handleInput } = this.props;
@@ -37,7 +30,6 @@ class UsersList extends React.Component {
 }
 
 const mapState = (state) => {
-  console.log(state)
   return {
     users: state.users.usersList,
     filter: state.users.filterText,
