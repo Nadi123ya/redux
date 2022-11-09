@@ -3,6 +3,7 @@ import Filter from "./Filter";
 import User from "./User";
 import { connect } from "react-redux";
 import { setFilterText } from "./users.actions.js";
+import {usersListSelector, filterTextSelector} from "./users.selectors"
 
 class UsersList extends React.Component {
 
@@ -31,8 +32,8 @@ class UsersList extends React.Component {
 
 const mapState = (state) => {
   return {
-    users: state.users.usersList,
-    filter: state.users.filterText,
+    users: usersListSelector(state),
+    filter: filterTextSelector(state),
   };
 };
 

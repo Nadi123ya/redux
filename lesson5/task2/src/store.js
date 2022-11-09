@@ -4,7 +4,7 @@ import optionsReducer from './options/options.reducer.js';
 
 
 const reducer = combineReducers({
- users: usersReducer
+ options: optionsReducer
 })
 
 const store = createStore(
