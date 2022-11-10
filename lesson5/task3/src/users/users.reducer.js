@@ -7,30 +7,15 @@ const initialState = {
 };
 
 const usersReducer = (state = initialState, action) => {
-  console.log(state.filterText);
-  console.log(state.usersList);
+
   switch (action.type) {
     case INPUT_VALUE: {
       const { value } = action.payload;
-      let sortedUsers;
-      console.log(sortedUsers);
-      if (value.toUpperCase() !== value.toLowerCase()) {
-        sortedUsers = state.usersList
-          .slice()
-          .filter((user) =>
-            user.name
-              .toLowerCase()
-              .split("")
-              .includes(value.toLowerCase().split("").toString())
-          );
-      } else {
-        sortedUsers = state.usersList;
-      }
-      console.log(sortedUsers);
+      console.log(state.usersList)
       return {
         ...state,
         filterText: value,
-        usersList: sortedUsers,
+        usersList: state.usersList,
       };
     }
     default:

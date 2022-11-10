@@ -9,8 +9,6 @@ class UsersList extends React.Component {
 
   render() {
     const { users, filter, handleInput } = this.props;
-    console.log(this.props);
-   console.log(filter)
     return (
       <div>
         <div className="filter">
