@@ -12,7 +12,7 @@ const UserInfo = ({ userData, isFetching }) => {
     return null;
   }
   return (
-    <div>
+    <div className="user">
       <img
         alt="User Avatar"
         src={userData.avatar_url}
