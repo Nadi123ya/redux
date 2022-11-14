@@ -1,2 +1,2 @@
-export const wheeatherDataselector = state => 
+export const wheatherDataselector = state => 
 Object.values(state.cities);

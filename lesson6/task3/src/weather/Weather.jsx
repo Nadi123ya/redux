@@ -2,7 +2,7 @@ import React from "react";
 import propTypes from "prop-types";
 import { connect } from "react-redux";
 import * as weatherActions from "./weather.actions";
-import { wheeatherDataselector } from './weather.selectors';
+import { wheatherDataselector } from './weather.selectors';
 // import { getWeatherData } from "./weather.gateway";
 
 class Weather extends React.Component {
@@ -37,7 +37,7 @@ Weather.propTypes = {
 
 const mapState = state => {
     return {
-      citiesData: wheeatherDataselector(state),
+      citiesData: wheatherDataselector(state),
     }
   }
   

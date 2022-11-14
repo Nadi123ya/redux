@@ -7,7 +7,7 @@ import { getCitiesData } from "./weather.gateway";
 
 export const WEATHER_DATA = "WEATHER_DATA";
 
-export const wetherRecived = (weatherData) => {
+export const weatherRecived = (weatherData) => {
   return {
     type: WEATHER_DATA,
     payload: {
@@ -19,7 +19,7 @@ export const wetherRecived = (weatherData) => {
 export const getWeatherData = () => {
   return function (dispatch) {
     getCitiesData().then((data) => {
-      dispatch(wetherRecived(data));
+      dispatch(weatherRecived(data));
     });
   };
 };
